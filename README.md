@@ -8,7 +8,6 @@ A **Calorie tracker** application to help the user to monitor their daily calori
 - Calorie tracking
 - Food database
 - Daily Goals
-- 
 
 ## Used Technologies
 
