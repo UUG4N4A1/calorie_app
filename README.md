@@ -16,5 +16,3 @@ A **Calorie tracker** application to help the user to monitor their daily calori
 - Dart
 - Firebase
 - Edamam API
-
-- 
