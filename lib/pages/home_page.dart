@@ -1,7 +1,7 @@
 import 'package:calorie_app/components/my_navigation.dart';
-import 'package:calorie_app/pages/add_food_page.dart';
-import 'package:calorie_app/pages/home_page_content.dart';
 import 'package:flutter/material.dart';
+import 'add_food_page.dart';
+import 'home_page_content.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,11 +10,23 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+  int totalCalories = 0;
+  double totalProtein = 0.0;
+  double totalCarbs = 0.0;
+  double totalFat = 0.0;
 
-  // Function to handle navigation item tap
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index;
+    });
+  }
+
+  void _addFoodData(int calories, double protein, double carbs, double fat) {
+    setState(() {
+      totalCalories += calories;
+      totalProtein += protein;
+      totalCarbs += carbs;
+      totalFat += fat;
     });
   }
 
@@ -35,13 +47,17 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Define the body content method
   Widget _body(int index) {
     switch (index) {
       case 0:
-        return HomePageContent();
+        return HomePageContent(
+          totalCalories: totalCalories,
+          totalProtein: totalProtein,
+          totalCarbs: totalCarbs,
+          totalFat: totalFat,
+        );
       case 1:
-        return AddFoodPage();
+        return AddFoodPage(onFoodAdded: _addFoodData);
       case 2:
         return Center(child: Text('Profile Page'));
       default:
