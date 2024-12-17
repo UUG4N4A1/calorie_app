@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: lightMode,
         darkTheme: darkMode,
-        // darkTheme: darkMode,
-        home: LandingPage());
+        home: HomePage());
   }
 }
