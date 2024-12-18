@@ -133,4 +133,4 @@ The app uses the Nutritionix API to fetch food data:
 -   Daily calorie goal tracking.
 
 ## Using Video
-You can watch a tutorial on how to use the Calorie Tracker App here: [Watch the Video](<>)
+You can watch a tutorial on how to use the Calorie Tracker App here: [Watch the Video](<https://youtube.com/shorts/8ZXruAQG-kI>)
