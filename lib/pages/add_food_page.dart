@@ -15,7 +15,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
   final TextEditingController _foodController = TextEditingController();
   Map<String, dynamic>? _foodData;
   bool _isLoading = false;
-
+//nutritionix key
   List<String> _searchHistory = []; 
   String _appId = 'e9073517';
   String _apiKey = '2b6b43934c7b31c624b0f37bdd9cf11f';
@@ -25,7 +25,6 @@ class _AddFoodPageState extends State<AddFoodPage> {
       _isLoading = true;
       _foodData = null; 
     });
-
     final url =
         Uri.parse('https://trackapi.nutritionix.com/v2/natural/nutrients');
     final response = await http.post(
@@ -101,7 +100,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
             ),
             SizedBox(height: 10),
 
-            // History Section
+            // omnoh hailtuud
             if (_searchHistory.isNotEmpty)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,7 +130,7 @@ class _AddFoodPageState extends State<AddFoodPage> {
                 ],
               ),
 
-            // Results Section
+            // hailtiin ilertsuud
             SizedBox(height: 10),
             if (_isLoading) Center(child: CircularProgressIndicator()),
             if (_foodData != null)

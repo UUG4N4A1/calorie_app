@@ -175,10 +175,10 @@ class _HomePageContentState extends State<HomePageContent> {
           height: 20,
           color: color,
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text(
           label,
-          style: TextStyle(fontSize: 16),
+          style: const TextStyle(fontSize: 16),
         ),
       ],
     );

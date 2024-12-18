@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
-  // Controllers for all input fields
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
@@ -15,7 +14,6 @@ class RegisterPage extends StatelessWidget {
   final TextEditingController _weightController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
-  // Function for handling registration and navigation
   void register(BuildContext context) {
     String email = _emailController.text;
     String name = _nameController.text;
@@ -24,9 +22,7 @@ class RegisterPage extends StatelessWidget {
     String height = _heightController.text;
     String weight = _weightController.text;
 
-    // Add validation logic for password and other fields (optional)
     if (password != confirmPassword) {
-      // Show an error message if passwords don't match
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -43,12 +39,12 @@ class RegisterPage extends StatelessWidget {
       return;
     }
 
-    // Navigate to the HomePage, passing the user data
+    // homepage ruu shiljih, hergelegchiin medeelel ywuulah
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) =>
-            HomePage(email: email), // Passing email to HomePage
+            HomePage(email: email),
       ),
     );
   }
@@ -82,8 +78,6 @@ class RegisterPage extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 50),
-
-                // Form Section
                 Text(
                   "Create your account",
                   style: TextStyle(
@@ -93,7 +87,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Name field
+                // ner
                 MyTextfield(
                   hintText: "Name",
                   obscureText: false,
@@ -101,7 +95,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Email field
+                // email
                 MyTextfield(
                   hintText: "Email",
                   obscureText: false,
@@ -109,7 +103,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Password field
+                // passowrd
                 MyTextfield(
                   hintText: 'Password',
                   obscureText: true,
@@ -117,7 +111,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Confirm Password field
+                // dahin shalgah
                 MyTextfield(
                   hintText: 'Confirm Password',
                   obscureText: true,
@@ -125,7 +119,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Height field
+                // ondor
                 MyTextfield(
                   hintText: 'Your height',
                   obscureText: false,
@@ -133,7 +127,7 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Weight field
+                // jin
                 MyTextfield(
                   hintText: 'Your weight',
                   obscureText: false,
@@ -141,14 +135,13 @@ class RegisterPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 25),
 
-                // Register button
+                // burtgel
                 MyButton(
                   text: "Register",
                   onTap: () => register(context),
                 ),
                 const SizedBox(height: 25),
 
-                // Log In redirection
                 Center(
                   child: Column(
                     children: [

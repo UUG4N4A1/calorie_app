@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// custom navigation bar
 class MyNavigation extends StatelessWidget {
   final int currentIndex;
   final Function(int) onItemTapped;

@@ -16,7 +16,7 @@ class ProfilePage extends StatelessWidget {
               alignment: Alignment.topCenter,
               margin: EdgeInsets.only(top: 50),
               child: CircleAvatar(
-                radius: 40, // Adjust size if needed
+                radius: 40,
                 backgroundColor: Colors.grey[300],
                 child: Icon(
                   Icons.person,
@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
                   onTap: () {
                     Navigator.pop(context);
 
-                    Navigator.pushNamed(context, '/timetable');
+                    Navigator.pushNamed(context, '/settings');
                   },
                 ),
               ),
