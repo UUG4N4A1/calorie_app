@@ -1,9 +1,14 @@
 import 'package:calorie_app/components/my_navigation.dart';
+import 'package:calorie_app/pages/add_food_page.dart';
+import 'package:calorie_app/pages/home_page_content.dart';
+import 'package:calorie_app/pages/profile_page.dart';
 import 'package:flutter/material.dart';
-import 'add_food_page.dart';
-import 'home_page_content.dart';
 
 class HomePage extends StatefulWidget {
+  final String email;
+
+  HomePage({Key? key, required this.email}) : super(key: key);
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -34,11 +39,22 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calorie Tracker'),
+        title: Text(
+          'Calorie Tracker',
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                color: Colors.white, 
+              ),
+        ),
+        backgroundColor:
+            Theme.of(context).colorScheme.primary, 
+        elevation: 2, 
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: _body(_currentIndex),
+      body: Container(
+        color: Theme.of(context).colorScheme.surface, 
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: _body(_currentIndex),
+        ),
       ),
       bottomNavigationBar: MyNavigation(
         currentIndex: _currentIndex,
@@ -59,7 +75,7 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return AddFoodPage(onFoodAdded: _addFoodData);
       case 2:
-        return Center(child: Text('Profile Page'));
+        return ProfilePage(email: widget.email); 
       default:
         return Container();
     }

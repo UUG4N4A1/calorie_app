@@ -1,5 +1,6 @@
 import 'package:calorie_app/components/my_button.dart';
 import 'package:calorie_app/components/my_textfield.dart';
+import 'package:calorie_app/pages/profile_page.dart';
 import 'package:calorie_app/pages/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,16 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  void login() {
-    // login
+  void login(BuildContext context) {
+    String email = _emailController.text; // Get email from the controller
+    // Validate email and password if needed
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProfilePage(email: email), // Pass email to ProfilePage
+      ),
+    );
   }
 
   @override
@@ -24,34 +33,27 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Padding(
-        padding: const EdgeInsets.all(20.0), 
+        padding: const EdgeInsets.all(20.0),
         child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween,
-          crossAxisAlignment:
-              CrossAxisAlignment.start, 
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.start, 
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Icon(
                   Icons.local_drink,
                   size: 60,
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-                const SizedBox(width: 10), 
+                const SizedBox(width: 10),
                 Text(
                   "Calorie Tracker",
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        fontSize: 16,
-                      ),
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 16),
                 ),
               ],
             ),
-            const SizedBox(height: 50), 
-
+            const SizedBox(height: 50),
             Container(
               margin: EdgeInsets.only(bottom: 250),
               child: Column(
@@ -64,50 +66,37 @@ class LoginPage extends StatelessWidget {
                       fontSize: 30,
                     ),
                   ),
-                  const SizedBox(
-                      height: 25), 
-
-                  // Email Textfield
+                  const SizedBox(height: 25),
                   MyTextfield(
                     hintText: "Email",
                     obscureText: false,
                     controller: _emailController,
                   ),
                   const SizedBox(height: 25),
-
-                  // Password Textfield
                   MyTextfield(
                     hintText: 'Password',
                     obscureText: true,
                     controller: _passwordController,
                   ),
-                  const SizedBox(
-                      height: 25), 
-
-                  // Log-In Button
+                  const SizedBox(height: 25),
                   MyButton(
                     text: "Log In",
-                    onTap: () => login(),
+                    onTap: () => login(context),
                   ),
-                  const SizedBox(
-                    height: 25,
-                  ),
+                  const SizedBox(height: 25),
                   Text(
                     "Don't have an account ?",
-                    style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                          fontSize: 11,
-                        ),
+                    style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 11),
                   ),
                   GestureDetector(
-                    onTap: () => register(context), 
+                    onTap: () => register(context),
                     child: Text(
                       "SIGN UP",
-                      style:
-                          Theme.of(context).textTheme.displayMedium?.copyWith(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
+                      style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
                     ),
                   ),
                 ],
